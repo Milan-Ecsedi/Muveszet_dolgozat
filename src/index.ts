@@ -1,4 +1,4 @@
-//import {Statue} from "./Statue.js";
+
 interface Artwork{
 
     title : string;

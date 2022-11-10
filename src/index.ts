@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 document.getElementById('ButtonAdd')?.addEventListener('click',()=>{
 
-    let nev:string=document.getElementById('InputName')!.value;
+    let nev:string=(document.getElementById('InputName') as HTMLInputElement)!.value;
     let ev:number=document.getElementById('InputYear')!.value;
     let ar:number=document.getElementById('InputPrice')!.value;
     let magassag:number=document.getElementById('InputHeight')!.value;

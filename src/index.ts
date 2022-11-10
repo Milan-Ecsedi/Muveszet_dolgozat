@@ -6,6 +6,9 @@ interface Artwork{
     price: number;
     toString() : string;
     kiir() : void;
+    
+   
+    
 
 }
 
@@ -21,7 +24,10 @@ document.getElementById('ButtonAdd')?.addEventListener('click',()=>{
     let ar:number=document.getElementById('InputPrice')!.value;
     let magassag:number=document.getElementById('InputHeight')!.value;
 
-    muvek.push(new Statue(nev,ev,ar,magassag));
+    Artwork.push(new Statue(nev,ev,ar,magassag));
+    for(let art of Artwork){
+        art.kiir();
+    }
 });
 });
 
@@ -40,8 +46,19 @@ class Statue implements Artwork{
         this.price=price;
         this.height=height;
 
-
     }
+
+    public set value(v : number) {
+       if(this.year<=2022){
+        this.year = v;
+       }
+       else{
+        throw new Error("Hiba, az év nem lehet nagyobb az aktuális évnél!");
+        
+       }
+        
+    }
+    
 
     toString(): string {
         
@@ -55,12 +72,10 @@ class Statue implements Artwork{
 }
 
 
-let muvek:Artwork[]=[
+let Artwork:Artwork[]=[
 
     new Statue("Marine o france",2017,20000,30),
     new Statue("Kamatase",2001,40000,45)
 
 ];
-for(let mu of muvek){
-    mu.kiir();
-}
+
